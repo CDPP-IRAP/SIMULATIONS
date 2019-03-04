@@ -77,7 +77,7 @@
     </SimulationRun>
     <NumericalOutput>
         <ResourceID>
-            spase://IMPEX/NumericalOutput/IRAP/CPEMv2/test1/plasma_density
+            spase://IMPEX/NumericalOutput/IRAP/BepiC/test1/plasma_density
         </ResourceID>
         <ResourceHeader>
             <ResourceName>Plasma Density</ResourceName>
