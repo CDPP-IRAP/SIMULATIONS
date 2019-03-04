@@ -76,9 +76,7 @@
         </RegionParameter>
     </SimulationRun>
     <NumericalOutput>
-        <ResourceID>
-            spase://IMPEX/NumericalOutput/IRAP/BepiC/test1/plasma_density
-        </ResourceID>
+        <ResourceID>spase://IMPEX/NumericalOutput/IRAP/BepiC/test1/plasma_density</ResourceID>
         <ResourceHeader>
             <ResourceName>Plasma Density</ResourceName>
             <ReleaseDate>2018-12-03T00:00:00.000</ReleaseDate>
