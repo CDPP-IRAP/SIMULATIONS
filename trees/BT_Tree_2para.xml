@@ -147,7 +147,7 @@
     </Granule>
     <NumericalOutput>
         <ResourceID>
-            spase://IMPEX/NumericalOutput/IRAP/CPEMv2/test1/ion_velocity
+            spase://IMPEX/NumericalOutput/IRAP/CPEMv2/test1/radial_velocity
         </ResourceID>
         <ResourceHeader>
             <ResourceName>Ion Velocity</ResourceName>
@@ -211,7 +211,7 @@
     </Granule>
     <NumericalOutput>
         <ResourceID>
-            spase://IMPEX/NumericalOutput/IRAP/CPEMv2/test1/ion_velocity
+            spase://IMPEX/NumericalOutput/IRAP/CPEMv2/test1/corotation_velocity
         </ResourceID>
         <ResourceHeader>
             <ResourceName>Ion Velocity</ResourceName>
@@ -275,7 +275,7 @@
     </Granule>
     <NumericalOutput>
         <ResourceID>
-            spase://IMPEX/NumericalOutput/IRAP/CPEMv2/test1/ion_velocity
+            spase://IMPEX/NumericalOutput/IRAP/CPEMv2/test1/polar_velocity
         </ResourceID>
         <ResourceHeader>
             <ResourceName>Ion Velocity</ResourceName>
