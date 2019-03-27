@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Spase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://impex-fp7.oeaw.ac.at" xsi:schemaLocation="http://impex-fp7.oeaw.ac.at/xsd/impex-1_0_1.xsd">
+    <Version>2.2.2</Version>
+<!--
+    <Spase xmlns="http://www.spase-group.org/data/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.spase-group.org/data/schema http://spase-group.org/data/simulation/schema/spase-sim-1_0_0.xsd">
+    <Version>2.2.6</Version>
+        -->
+    <SimulationModel>
+        <ResourceID>spase://IMPEX/SimulationModel/LATMOS/EGM</ResourceID>
+        <ResourceHeader>
+            <ResourceName>EGM_LATMOS</ResourceName>
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+            <Description>
+                Exospheric simulation model developped at LATMOS for exosphere and high atmosphere of planets and moon
+            </Description>            
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+            <InformationURL>
+                <URL>http://impex.latmos.ipsl.fr</URL>
+            </InformationURL>
+        </ResourceHeader>
+        <SimulationType>Test_Particle</SimulationType>
+        <CodeLanguage>Fortran2003</CodeLanguage>
+    </SimulationModel>  
+    <Repository> 
+        <ResourceID>spase://IMPEX/Repository/LATMOS</ResourceID> 
+        <ResourceHeader> 
+            <ResourceName>Latmos_Exospheric_Simulation_Database</ResourceName> 
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate> 
+            <Description/>
+            <Contact> 
+                <PersonID>LATMOS</PersonID> 
+                <Role>DataProducer</Role> 
+            </Contact> 
+        </ResourceHeader> 
+        <AccessURL> 
+            <URL>http://impex.latmos.ipsl.fr/EGM</URL> 
+        </AccessURL> 
+    </Repository>   
+     <NumericalOutput>
+        <ResourceID>spase://IMPEX/NumericalOutput/LATMOS/EGM/Mars_LS270_Sol1/3D</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Planetary/3D</ResourceName>
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+            <Description/>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <AccessInformation>
+            <RepositoryID>spase://IMPEX/Repository/LATMOS</RepositoryID>
+            <AccessURL>
+                <URL>http://impex.latmos.ipsl.fr/EGM</URL>
+            </AccessURL>
+            <Format>NetCDF</Format>
+        </AccessInformation>
+        <MeasurementType>NeutralGas</MeasurementType>
+        <SpatialDescription>
+            <Dimension>3</Dimension>
+            <CoordinateSystem>
+                <CoordinateRepresentation>Spherical</CoordinateRepresentation>
+                <CoordinateSystemName>MSO</CoordinateSystemName>
+            </CoordinateSystem>
+            <Units>km</Units>
+            <UnitsConversion> 1000 &gt; m </UnitsConversion>
+            <CoordinatesLabel>r latitude longitude</CoordinatesLabel>
+            <!-- modifier valeur ci-dessous -->
+            <RegionBegin>   0   -180   -180 </RegionBegin>
+            <RegionEnd>    10200.    180    180 </RegionEnd>
+        </SpatialDescription>
+        <SimulatedRegion>Mars</SimulatedRegion>
+        <InputResourceID>spase://IMPEX/SimulationRun/LATMOS/EGM/Mars_LS270_Sol1</InputResourceID>
+        <Parameter>
+            <Name>density_H</Name>
+            <ParameterKey>Density</ParameterKey>
+            <Units>cm^-3</Units>
+            <Particle>
+                <PopulationID>Planetary_H</PopulationID>
+                <ParticleType>Atom</ParticleType>
+                <ParticleQuantity>NumberDensity</ParticleQuantity>
+                <ChemicalFormula>H</ChemicalFormula>
+                <PopulationMassNumber>1</PopulationMassNumber>
+                <PopulationChargeState>0</PopulationChargeState>
+            </Particle>
+        </Parameter>
+        <Parameter>
+            <Name>TempH</Name>
+            <ParameterKey>Temperature</ParameterKey>
+            <Units>K</Units>
+            <Particle>
+                <PopulationID>Planetary_H</PopulationID>
+                <ParticleType>Atom</ParticleType>
+                <ParticleQuantity>Temperature</ParticleQuantity>
+                <ChemicalFormula>H</ChemicalFormula>
+                <PopulationMassNumber>1</PopulationMassNumber>
+                <PopulationChargeState>0</PopulationChargeState>
+            </Particle>
+        </Parameter>
+         <Parameter>
+             <Name>densityCO2H</Name>
+             <ParameterKey>Density</ParameterKey>
+             <Units>cm^-3</Units>
+             <Particle>
+                 <PopulationID>Planetary_CO2</PopulationID>
+                 <ParticleType>Atom</ParticleType>
+                 <ParticleQuantity>NumberDensity</ParticleQuantity>
+                 <ChemicalFormula>CO2</ChemicalFormula>
+                 <PopulationMassNumber>44</PopulationMassNumber>
+                 <PopulationChargeState>0</PopulationChargeState>
+             </Particle>
+         </Parameter>
+         <Parameter>
+             <Name>TempCO2</Name>
+             <ParameterKey>Temperature</ParameterKey>
+             <Units>K</Units>
+             <Particle>
+                 <PopulationID>Planetary_CO2</PopulationID>
+                 <ParticleType>Molecule</ParticleType>
+                 <ParticleQuantity>Temperature</ParticleQuantity>
+                 <ChemicalFormula>CO2</ChemicalFormula>
+                 <PopulationMassNumber>44</PopulationMassNumber>
+                 <PopulationChargeState>0</PopulationChargeState>
+             </Particle>
+         </Parameter>         
+        <SimulationProduct>3DCubes</SimulationProduct>
+    </NumericalOutput>
+    
+    
+<SimulationRun>
+<ResourceID>spase://IMPEX/SimulationRun/LATMOS/EGM/Mars_LS270_Sol1</ResourceID>
+<ResourceHeader>
+<ResourceName>Mars_LS270_Sol1</ResourceName>
+<ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+<Description/>
+<Contact>
+<PersonID>LATMOS</PersonID>
+<Role>DataProducer</Role>
+</Contact>
+</ResourceHeader>
+<Model>
+    <ModelID>spase://IMPEX/SimulationModel/LATMOS/EGM</ModelID>
+</Model>
+<TemporalDependence>No</TemporalDependence>
+<SimulatedRegion>Mars</SimulatedRegion>
+<LikelihoodRating>Probable</LikelihoodRating>
+    <SimulationTime>
+        <Duration>PT2072.854S</Duration>
+        <TimeStart>00:00:00</TimeStart>
+        <TimeStep>PT0.115S</TimeStep>
+    </SimulationTime>
+<SimulationDomain>
+<CoordinateSystem>
+<CoordinateRepresentation>Spherical</CoordinateRepresentation>
+<CoordinateSystemName>MSO</CoordinateSystemName>
+</CoordinateSystem>
+<SpatialDimension>3</SpatialDimension>
+<Units>km</Units>
+<CoordinatesLabel>r co-latitude longitude</CoordinatesLabel>
+    <!-- valeur à modifier--> 
+    <ValidMin>0  -180  -180</ValidMin>
+    <ValidMax>10200.   180   180</ValidMax>
+    <GridStructure>Variable. GridCellSize gives the size of the smallest grid cell.</GridStructure>
+<GridCellSize>5.    5.   5.</GridCellSize>
+<Symmetry>Axial</Symmetry>
+<BoundaryConditions>
+<ParticleBoundary>
+<FrontWall> absorbing </FrontWall>
+<BackWall> absorbing </BackWall>
+<SideWall> absorbing </SideWall>
+<Obstacle> absorbing </Obstacle>
+</ParticleBoundary>
+</BoundaryConditions>
+</SimulationDomain>
+
+<RegionParameter>
+<SimulatedRegion>Mars</SimulatedRegion>
+<Radius Units="km">3393.00</Radius>
+<SubLongitude>0.00</SubLongitude>
+<Property>
+<Name>Exobase Altitude</Name>
+<Description>Altitude of the exobase</Description>
+<PropertyQuantity>Positional</PropertyQuantity>
+<Units>km</Units>
+<UnitsConversion> 1000 &gt; m </UnitsConversion>
+<PropertyValue>3503.00</PropertyValue>
+</Property>
+</RegionParameter>
+
+<InputPopulation>
+<Name>Thermospheric H</Name>
+    <Description>Thermospheric H</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Atom</ParticleType>
+<PopulationMassNumber>1</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+    <PopulationTemperature Units="K">0</PopulationTemperature>
+    <!--
+    <DensityProfile>Profile density from GCM simulation</DensityProfile>
+    -->
+</InputPopulation>
+<InputPopulation>
+    <Name>Thermospheric CO2</Name>
+    <Description>Thermospheric CO2</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Molecule</ParticleType>
+<PopulationMassNumber>44</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+    <PopulationTemperature Units="K">0</PopulationTemperature>
+    <!--
+    <DensityProfile>Profile density from GCM simulation</DensityProfile>
+    -->
+</InputPopulation>
+<InputPopulation>
+    <Name>Thermospheric H2</Name>
+    <Description>Thermospheric H2</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Molecule</ParticleType>
+<PopulationMassNumber>2</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+    <PopulationTemperature Units="K">0</PopulationTemperature>
+    <!--
+    <DensityProfile>Profile density from GCM simulation</DensityProfile>
+    -->
+</InputPopulation>
+<InputPopulation>
+    <Name>Thermospheric CO</Name>
+    <Description>Thermospheric CO</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Molecule</ParticleType>
+<PopulationMassNumber>28</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+    <PopulationTemperature Units="K">0</PopulationTemperature>
+    <!--
+    <DensityProfile>Profile density from GCM simulation</DensityProfile>
+    -->
+</InputPopulation>
+<InputPopulation>
+    <Name>Thermospheric N2</Name>
+    <Description>Thermospheric N2</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Molecule</ParticleType>
+<PopulationMassNumber>28</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+    <PopulationTemperature Units="K">0</PopulationTemperature>
+    <!--
+    <DensityProfile>Profile density from GCM simulation</DensityProfile>
+    -->
+</InputPopulation>
+<InputPopulation>
+<Name>Ionospheric O2+</Name>
+<Description>Ionospheric O2+</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Ion</ParticleType>
+<PopulationMassNumber>32</PopulationMassNumber>
+<PopulationChargeState>1</PopulationChargeState>
+    <!--
+    <DensityProfile>Profile density from GCM simulation</DensityProfile>
+    -->
+</InputPopulation>
+<InputPopulation>
+<Name>Exospheric O</Name>
+<Description>Exospheric O</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Atom</ParticleType>
+<PopulationMassNumber>16</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+<PopulationTemperature Units="eV" UnitsConversion="11605 &gt; K">0</PopulationTemperature>
+</InputPopulation>
+<InputPopulation>
+<Name>Exospheric CO2</Name>
+<Description>Exospheric CO2</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Atom</ParticleType>
+<PopulationMassNumber>44</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+<PopulationTemperature Units="eV" UnitsConversion="11605 &gt; K">0</PopulationTemperature>
+</InputPopulation>
+<InputPopulation>
+<Name>Exospheric H</Name>
+<Description>Exospheric H</Description>
+<SimulatedRegion>Mars</SimulatedRegion>
+<ParticleType>Atom</ParticleType>
+<PopulationMassNumber>1</PopulationMassNumber>
+<PopulationChargeState>0</PopulationChargeState>
+<PopulationTemperature Units="eV" UnitsConversion="11605 &gt; K">0</PopulationTemperature>
+</InputPopulation>
+<InputProcess>
+<Name>CO2 + photon  = CO2+ + e-</Name>
+<ProcessType>PhotoIonization</ProcessType>
+<Units>s-1</Units>
+<ProcessCoefficient>5.95E-07</ProcessCoefficient>
+<ProcessCoeffType>Frequency</ProcessCoeffType>
+</InputProcess>
+<InputProcess>
+<Name>O + photon  = O+ + e-</Name>
+<ProcessType>PhotoIonization</ProcessType>
+<Units>s-1</Units>
+<ProcessCoefficient>2.85E-07</ProcessCoefficient>
+<ProcessCoeffType>Frequency</ProcessCoeffType>
+</InputProcess>
+<InputProcess>
+<Name>H + photon  = H+ + e-</Name>
+<ProcessType>PhotoIonization</ProcessType>
+<Units>s-1</Units>
+<ProcessCoefficient>4.16E-08</ProcessCoefficient>
+<ProcessCoeffType>Frequency</ProcessCoeffType>
+</InputProcess>
+<InputProcess>
+<Name>CO2 + photon  = O+ + e-</Name>
+<ProcessType>PhotoIonization</ProcessType>
+<Units>s-1</Units>
+<ProcessCoefficient>8.32E-08</ProcessCoefficient>
+<ProcessCoeffType>Frequency</ProcessCoeffType>
+</InputProcess>
+<InputParameter>
+<Name>Solar Flux</Name>
+<ParameterQuantity>SolarUVFlux</ParameterQuantity>
+<Property>
+<Name>Solar UV Flux @ 10.7</Name>
+<PropertyQuantity>SolarUVFlux</PropertyQuantity>
+<PropertyValue>170.00</PropertyValue>
+</Property>
+<Property>
+<Name>Solar UV Flux @ 10.7 Average</Name>
+<PropertyQuantity>ActivityIndex</PropertyQuantity>
+<PropertyValue>170.00</PropertyValue>
+</Property>
+</InputParameter>
+</SimulationRun> 
+    <NumericalOutput>
+        <ResourceID>spase://IMPEX/NumericalOutput/LATMOS/EGM/Mars_LS270_Sol1/H/2D/XY</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Planetary H/2D/XY</ResourceName>
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+            <Description/>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <AccessInformation>
+            <RepositoryID>spase://IMPEX/Repository/LATMOS</RepositoryID>
+            <AccessURL>
+                <URL>http://impex.latmos.ipsl.fr/EGM</URL>
+            </AccessURL>
+            <Format>XML</Format>
+        </AccessInformation>
+        <MeasurementType>NeutralGas</MeasurementType>
+        <SpatialDescription>
+            <Dimension>2</Dimension>
+            <CoordinateSystem>
+                <CoordinateRepresentation>Cartesian</CoordinateRepresentation>
+                <CoordinateSystemName>MSO</CoordinateSystemName>
+            </CoordinateSystem>
+            <Units>km</Units>
+            <UnitsConversion> 1000 &gt; m </UnitsConversion>
+            <PlaneNormalVector> 0.00  0.00  1.00 </PlaneNormalVector>
+            <PlanePoint>0 0 0</PlanePoint>
+        </SpatialDescription>
+        <SimulatedRegion>Mars</SimulatedRegion>
+        <InputResourceID>spase://IMPEX/SimulationRun/LATMOS/EGM/Mars_LS270_Sol1</InputResourceID>
+        <Parameter>
+            <Name>n_i</Name>
+            <ParameterKey>Density</ParameterKey>
+            <Units>cm^-3</Units>
+            <Particle>
+                <PopulationID>Planetary_H</PopulationID>
+                <ParticleType>Atom</ParticleType>
+                <ParticleQuantity>NumberDensity</ParticleQuantity>
+                <ChemicalFormula>H</ChemicalFormula>
+                <AtomicNumber>1</AtomicNumber>
+                <PopulationMassNumber>1</PopulationMassNumber>
+                <PopulationChargeState>0</PopulationChargeState>
+            </Particle>
+        </Parameter>
+        <SimulationProduct>2DCuts</SimulationProduct>
+    </NumericalOutput>    
+    <NumericalOutput>
+        <ResourceID>spase://IMPEX/NumericalOutput/LATMOS/EGM/Mars_LS270_Sol1/CO2/2D/XY</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Planetary CO2/2D/XY</ResourceName>
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+            <Description/>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <AccessInformation>
+            <RepositoryID>spase://IMPEX/Repository/LATMOS</RepositoryID>
+            <AccessURL>
+                <URL>http://impex.latmos.ipsl.fr/EGM</URL>
+            </AccessURL>
+            <Format>XML</Format>
+        </AccessInformation>
+        <MeasurementType>NeutralGas</MeasurementType>
+        <SpatialDescription>
+            <Dimension>2</Dimension>
+            <CoordinateSystem>
+                <CoordinateRepresentation>Cartesian</CoordinateRepresentation>
+                <CoordinateSystemName>MSO</CoordinateSystemName>
+            </CoordinateSystem>
+            <Units>km</Units>
+            <UnitsConversion> 1000 &gt; m </UnitsConversion>
+            <PlaneNormalVector> 0.00  0.00  1.00 </PlaneNormalVector>
+            <PlanePoint>0 0 0</PlanePoint>
+        </SpatialDescription>
+        <SimulatedRegion>Mars</SimulatedRegion>
+        <InputResourceID>spase://IMPEX/SimulationRun/LATMOS/EGM/Mars_LS270_Sol1</InputResourceID>
+        <Parameter>
+            <Name>n_i</Name>
+            <ParameterKey>Density</ParameterKey>
+            <Units>cm^-3</Units>
+            <Particle>
+                <PopulationID>Planetary_CO2</PopulationID>
+                <ParticleType>Molecule</ParticleType>
+                <ParticleQuantity>NumberDensity</ParticleQuantity>
+                <ChemicalFormula>CO2</ChemicalFormula>
+                <PopulationMassNumber>44</PopulationMassNumber>
+                <PopulationChargeState>0</PopulationChargeState>
+            </Particle>
+        </Parameter>
+        <SimulationProduct>2DCuts</SimulationProduct>
+    </NumericalOutput>    
+    <Granule>
+        <ResourceID>spase://IMPEX/Granule/LATMOS/EGM/Mars_LS270_Sol1/3D/EGM_LS270_Sol1</ResourceID>
+        <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+        <ParentID>spase://IMPEX/NumericalOutput/LATMOS/EGM/Mars_LS270_Sol1/3D</ParentID>
+        <RegionBegin>   -12918.2   -12918.2   -12918.2 </RegionBegin>
+        <RegionEnd>    12918.2    12918.2    12918.2 </RegionEnd>
+        <Source>
+            <SourceType>Data</SourceType>
+            <URL>http://impex.latmos.ipsl.fr/EGM/Mars_LS270_Sol1/EGM_LS270_Sol1_1.nc</URL>
+        </Source>
+    </Granule>     
+    <Granule>
+        <ResourceID>spase://IMPEX/Granule/LATMOS/EGM/Mars_LS270_Sol1/H/2D/XY/H_XY_LS270_Sol_1</ResourceID>
+        <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+        <ParentID>spase://IMPEX/NumericalOutput/LATMOS/EGM/Mars_LS270_Sol1/H/2D/XY</ParentID>
+        <RegionBegin>   -12918.2   -12918.2   -12918.2 </RegionBegin>
+        <RegionEnd>    12918.2    12918.2    12918.2 </RegionEnd>
+        <Source>
+            <SourceType>Data</SourceType>
+            <URL>http://impex.latmos.ipsl.fr/EGM/Mars_LS270_Sol1/H_XY_LS270_Sol_1.xml</URL>
+        </Source>
+    </Granule>    
+    <Granule>
+        <ResourceID>spase://IMPEX/Granule/LATMOS/EGM/Mars_LS270_Sol1/CO2/2D/XY/CO2_XY_LS270_Sol_1</ResourceID>
+        <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+        <ParentID>spase://IMPEX/NumericalOutput/LATMOS/EGM/Mars_LS270_Sol1/CO2/2D/XY</ParentID>
+        <RegionBegin>   -12918.2   -12918.2   -12918.2 </RegionBegin>
+        <RegionEnd>    12918.2    12918.2    12918.2 </RegionEnd>
+        <Source>
+            <SourceType>Data</SourceType>
+            <URL>http://impex.latmos.ipsl.fr/EGM/Mars_LS270_Sol1/CO2_XY_LS270_Sol_1.xml</URL>
+        </Source>
+    </Granule>     
+</Spase>
