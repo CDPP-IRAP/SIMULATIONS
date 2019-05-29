@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <Spase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://impex-fp7.oeaw.ac.at" xsi:schemaLocation="http://impex-fp7.oeaw.ac.at/xsd/impex-1_0_1.xsd">
+    <Version>2.2.2</Version>
+-->
+<Spase xmlns="http://www.spase-group.org/data/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.spase-group.org/data/schema http://spase-group.org/data/simulation/schema/spase-sim-1_0_0.xsd">
+    <Version>2.2.6</Version>
+
+    <SimulationModel>
+        <ResourceID>spase://IMPEX/SimulationModel/LATMOS/Hybrid</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Hybrid_LATMOS</ResourceName>
+            <ReleaseDate>2014-05-21T00:00:00.000</ReleaseDate>
+            <Description>
+                Hybrid simulation model developped at LATMOS for plasma interaction with celestial neutral environments (planets or moons)
+            </Description>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+            <InformationURL>
+                <URL>http://impex.latmos.ipsl.fr</URL>
+            </InformationURL>
+        </ResourceHeader>
+        <SimulationType>Hybrid</SimulationType>
+        <CodeLanguage>Fortran2003</CodeLanguage>
+    </SimulationModel>
+    <Annotation>
+        <ResourceID>spase://IMPEX/Annotation/LATMOS/TD_Annotation</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Hybrid_LATMOS</ResourceName>
+            <ReleaseDate>2014-05-21T00:00:00.000</ReleaseDate>
+            <Description>Real time solar wind input</Description>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <AnnotationType>Event</AnnotationType>
+        <TimeSpan>
+            <StartDate>2014-12-24T07:00:00.000</StartDate>
+            <StopDate>2014-12-24T10:48:40.000</StopDate>
+        </TimeSpan>
+    </Annotation>
+    <Repository>
+        <ResourceID>spase://IMPEX/Repository/LATMOS</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Latmos_Hybrid_Simulation_Database</ResourceName>
+            <ReleaseDate>2013-06-12T00:00:00.000</ReleaseDate>
+            <Description/>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <AccessURL>
+            <URL>http://impex.latmos.ipsl.fr/Hybrid</URL>
+        </AccessURL>
+    </Repository>
+    <SimulationRun>
+        <ResourceID>spase://IMPEX/SimulationRun/LATMOS/Hybrid/Mars_12_06_17_TD</ResourceID>
+        <ResourceHeader>
+            <ResourceName>LatHyS_Mars_12_06_17_TD</ResourceName>
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+            <Description/>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <Model>
+            <ModelID>spase://IMPEX/SimulationModel/LATMOS/Hybrid</ModelID>
+        </Model>
+        <TemporalDependence>Yes</TemporalDependence>
+        <SimulatedRegion>Mars</SimulatedRegion>
+        <LikelihoodRating>Probable</LikelihoodRating>
+        <SimulationTime>
+            <!--                <StartDate>2014-12-244T07:00:00.000</StartDate>
+            <StopDate>2014-12-24T10:48:40.000</StopDate>-->
+            <Duration>PT21308.44S</Duration>
+            <TimeStart>00:00:00</TimeStart>
+            <TimeStep>PT0.062S</TimeStep>
+        </SimulationTime>
+        <SimulationDomain>
+            <CoordinateSystem>
+                <CoordinateRepresentation>Cartesian</CoordinateRepresentation>
+                <CoordinateSystemName>MSO</CoordinateSystemName>
+            </CoordinateSystem>
+            <SpatialDimension>3</SpatialDimension>
+            <VelocityDimension>3</VelocityDimension>
+            <FieldDimension>3</FieldDimension>
+            <Units>km</Units>
+            <CoordinatesLabel>X Y Z</CoordinatesLabel>
+            <ValidMin>-8003.8  -15460.4  -15460.4</ValidMin>
+            <ValidMax>8140.7   15537.0   15537.0</ValidMax>
+            <GridStructure>Constant</GridStructure>
+            <GridCellSize>80.7 80.7 80.7</GridCellSize>
+            <Symmetry>Axial</Symmetry>
+            <BoundaryConditions>
+                <ParticleBoundary>
+                    <FrontWall> absorbing </FrontWall>
+                    <BackWall> absorbing </BackWall>
+                    <SideWall> absorbing </SideWall>
+                    <Obstacle> absorbing </Obstacle>
+                </ParticleBoundary>
+                <FieldBoundary>
+                    <FrontWall> IMF </FrontWall>
+                    <BackWall> Neuman zero-gradient </BackWall>
+                    <SideWall> periodic </SideWall>
+                    <Obstacle> absorbing </Obstacle>
+                </FieldBoundary>
+            </BoundaryConditions>
+        </SimulationDomain>
+        
+        <InputField>
+            <Name>IMF</Name>
+            <Description>Interplanetary Magnetic Field</Description>
+            <SimulatedRegion>Heliosphere</SimulatedRegion>
+            <FieldQuantity>Magnetic</FieldQuantity>
+            <Units>nT</Units>
+            <UnitsConversion> 1.E-9 &gt; T </UnitsConversion>
+            <InputTableURL>http://impex.latmos.ipsl.fr/Hybrid/Mars_12_06_17_TD/input_MAVEN_B_MSO.vot</InputTableURL>
+        </InputField>
+        <InputField>
+            <Name>CrustalField</Name>
+            <SimulatedRegion>Mars</SimulatedRegion>
+            <FieldQuantity>Magnetic</FieldQuantity>
+            <FieldModel>FSU90</FieldModel>
+        </InputField>
+        <InputParameter>
+            <Name>Solar Flux</Name>
+            <ParameterQuantity>SolarUVFlux</ParameterQuantity>
+            <Property>
+                <Name>Solar UV Flux @ 10.7</Name>
+                <PropertyQuantity>SolarUVFlux</PropertyQuantity>
+                <PropertyValue>150.00</PropertyValue>
+            </Property>
+            <Property>
+                <Name>Solar UV Flux @ 10.7 Average</Name>
+                <PropertyQuantity>ActivityIndex</PropertyQuantity>
+                <PropertyValue>150.00</PropertyValue>
+            </Property>
+        </InputParameter>
+        <InputParameter>
+            <Name>Derived Parameters</Name>
+            <ParameterQuantity>Other</ParameterQuantity>
+            <Property>
+                <Name>Alfven Speed</Name>
+                <PropertyQuantity>AlfvenVelocity</PropertyQuantity>
+                <Units>km*s^-1</Units>
+                <UnitsConversion> 1000 &gt; m.s^-1 </UnitsConversion>
+                <PropertyValue>36.96</PropertyValue>
+            </Property>
+            <Property>
+                <Name>Alfven Mach Number</Name>
+                <PropertyQuantity>AlfvenMachNumber</PropertyQuantity>
+                <PropertyValue>8.39</PropertyValue>
+            </Property>
+            <Property>
+                <Name>Ion Inertial Length</Name>
+                <PropertyQuantity>Other</PropertyQuantity>
+                <Units>km</Units>
+                <UnitsConversion> 1000 &gt; m </UnitsConversion>
+                <PropertyValue>68.41</PropertyValue>
+            </Property>
+        </InputParameter>
+    </SimulationRun>
+    <NumericalOutput>
+        <ResourceID>spase://IMPEX/NumericalOutput/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/3D</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Mag/3D</ResourceName>
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+            <Description/>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <AccessInformation>
+            <RepositoryID>spase://IMPEX/Repository/LATMOS</RepositoryID>
+            <AccessURL>
+                <URL>http://impex.latmos.ipsl.fr/Hybrid</URL>
+            </AccessURL>
+            <Format>NetCDF</Format>
+        </AccessInformation>
+        <MeasurementType>MagneticField</MeasurementType>
+        <SpatialDescription>
+            <Dimension>3</Dimension>
+            <CoordinateSystem>
+                <CoordinateRepresentation>Cartesian</CoordinateRepresentation>
+                <CoordinateSystemName>MSO</CoordinateSystemName>
+            </CoordinateSystem>
+            <Units>km</Units>
+            <UnitsConversion> 1000 &gt; m </UnitsConversion>
+            <RegionBegin> -8003.8 -15460.4 -15460.4 </RegionBegin>
+            <RegionEnd> 8140.7 15537.0 15537.0 </RegionEnd>
+        </SpatialDescription>
+        <SimulatedRegion>Mars</SimulatedRegion>
+        <InputResourceID>spase://IMPEX/SimulationRun/LATMOS/Hybrid/Mars_12_06_17_TD</InputResourceID>
+        <Parameter>
+            <Name>MagneticField</Name>
+            <ParameterKey>Bx,By,Bz</ParameterKey>
+            <Units>nT</Units>
+            <UnitsConversion> 1.E-9 &gt; T </UnitsConversion>
+            <Field>
+                <Qualifier>Vector</Qualifier>
+                <FieldQuantity>Magnetic</FieldQuantity>
+            </Field>
+        </Parameter>
+        <SimulationProduct>3DCubes</SimulationProduct>
+    </NumericalOutput>
+    <NumericalOutput>
+        <ResourceID>spase://IMPEX/NumericalOutput/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/2D/XY</ResourceID>
+        <ResourceHeader>
+            <ResourceName>Mag/2D/XY</ResourceName>
+            <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+            <Description/>
+            <Contact>
+                <PersonID>LATMOS</PersonID>
+                <Role>DataProducer</Role>
+            </Contact>
+        </ResourceHeader>
+        <AccessInformation>
+            <RepositoryID>spase://IMPEX/Repository/LATMOS</RepositoryID>
+            <AccessURL>
+                <URL>http://impex.latmos.ipsl.fr/Hybrid</URL>
+            </AccessURL>
+            <Format>XML</Format>
+        </AccessInformation>
+        <MeasurementType>MagneticField</MeasurementType>
+        <SpatialDescription>
+            <Dimension>2</Dimension>
+            <CoordinateSystem>
+                <CoordinateRepresentation>Cartesian</CoordinateRepresentation>
+                <CoordinateSystemName>MSO</CoordinateSystemName>
+            </CoordinateSystem>
+            <Units>km</Units>
+            <UnitsConversion> 1000 &gt; m </UnitsConversion>
+            <PlaneNormalVector> 0.00 0.00 1.00 </PlaneNormalVector>
+            <PlanePoint>0 0 0</PlanePoint>
+        </SpatialDescription>
+        <SimulatedRegion>Mars</SimulatedRegion>
+        <InputResourceID>spase://IMPEX/SimulationRun/LATMOS/Hybrid/Mars_12_06_17_TD</InputResourceID>
+        <Parameter>
+            <Name>TotalMagneticField</Name>
+            <ParameterKey>Btot</ParameterKey>
+            <Units>nT</Units>
+            <UnitsConversion> 1.E-9 &gt; T </UnitsConversion>
+            <Field>
+                <Qualifier>Total</Qualifier>
+                <FieldQuantity>Magnetic</FieldQuantity>
+            </Field>
+        </Parameter>
+        <Parameter>
+            <Name>MagneticField</Name>
+            <ParameterKey>Bx,By,Bz</ParameterKey>
+            <Units>nT</Units>
+            <UnitsConversion> 1.E-9 &gt; T </UnitsConversion>
+            <Field>
+                <Qualifier>Vector</Qualifier>
+                <FieldQuantity>Magnetic</FieldQuantity>
+            </Field>
+        </Parameter>
+        <SimulationProduct>2DCuts</SimulationProduct>
+    </NumericalOutput>
+    <Granule>
+        <ResourceID>spase://IMPEX/Granule/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/3D/Magw_12_06_17_t01400</ResourceID>
+        <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+
+        <ParentID>spase://IMPEX/NumericalOutput/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/3D</ParentID>
+        <StartDate>2014-12-24T07:00:00</StartDate>
+        <StopDate>2014-12-24T07:00:00</StopDate>
+        <Source>
+            <SourceType>Data</SourceType>
+            <URL>http://impex.latmos.ipsl.fr/Hybrid/Mars_12_06_17_TD/Magw_12_06_17_t01400.nc</URL>
+        </Source>
+    </Granule>
+    <Granule>
+        <ResourceID>spase://IMPEX/Granule/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/3D/Magw_12_06_17_t08792</ResourceID>
+        <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+        <ParentID>spase://IMPEX/NumericalOutput/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/3D</ParentID>
+        <StartDate>2014-12-24T10:48:00</StartDate>
+        <StopDate>2014-12-24T10:48:00</StopDate>
+        <Source>
+            <SourceType>Data</SourceType>
+            <URL>http://impex.latmos.ipsl.fr/Hybrid/Mars_12_06_17_TD/Magw_12_06_17_t08792.nc</URL>
+        </Source>
+    </Granule>
+    <Granule>
+        <ResourceID>spase://IMPEX/Granule/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/2D/XY/Bfield_XY_12_06_17_t01400</ResourceID>
+        <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+        <ParentID>spase://IMPEX/NumericalOutput/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/2D/XY</ParentID>
+        <StartDate>2014-12-24T07:00:00</StartDate>
+        <StopDate>2014-12-24T07:00:00</StopDate>
+        <Source>
+            <SourceType>Data</SourceType>
+            <URL>http://impex.latmos.ipsl.fr/Hybrid/Mars_12_06_17_TD/Bfield_XY_12_06_17_t01400.xml</URL>
+        </Source>
+    </Granule>
+    <Granule>
+        <ResourceID>spase://IMPEX/Granule/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/2D/XY/Bfield_XY_12_06_17_t08792</ResourceID>
+        <ReleaseDate>2018-09-01T00:00:00.000</ReleaseDate>
+        <ParentID>spase://IMPEX/NumericalOutput/LATMOS/Hybrid/Mars_12_06_17_TD/Mag/2D/XY</ParentID>
+        <StartDate>2014-12-24T10:48:00</StartDate>
+        <StopDate>2014-12-24T10:48:00</StopDate>
+        <Source>
+            <SourceType>Data</SourceType>
+            <URL>http://impex.latmos.ipsl.fr/Hybrid/Mars_12_06_17_TD/Bfield_XY_12_06_17_t08792.xml</URL>
+        </Source>
+    </Granule>
+</Spase>
